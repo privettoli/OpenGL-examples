@@ -94,39 +94,39 @@ public class Renderer02 extends IExampleRenderer {
         final float[] triangle1VerticesData = {
                 // X, Y, Z,
                 // R, G, B, A
-                -0.5f, -0.25f, 0.0f,
-                1.0f, 0.0f, 0.0f, 1.0f,
+                -(float)Math.random(), -(float)Math.random(), 0.0f,
+                (float)Math.random(), (float)Math.random(), (float)Math.random(), 1.0f,
 
-                0.5f, -0.25f, 0.0f,
-                0.0f, 0.0f, 1.0f, 1.0f,
+                (float)Math.random(), -(float)Math.random(), 0.0f,
+                (float)Math.random(), (float)Math.random(), (float)Math.random(), 1.0f,
 
-                0.0f, 0.559016994f, 0.0f,
-                0.0f, 1.0f, 0.0f, 1.0f};
+                (float)Math.random(), (float)Math.random(), 0.0f,
+                (float)Math.random(), (float)Math.random(), (float)Math.random(), 1.0f};
 // This triangle is yellow, cyan, and magenta.
         final float[] triangle2VerticesData = {
                 // X, Y, Z,
                 // R, G, B, A
-                -0.5f, -0.25f, 0.0f,
-                1.0f, 1.0f, 0.0f, 1.0f,
+                -(float)Math.random(), -(float)Math.random(), 0.0f,
+                (float)Math.random(), (float)Math.random(), (float)Math.random(), 1.0f,
 
-                0.5f, -0.25f, 0.0f,
-                0.0f, 1.0f, 1.0f, 1.0f,
+                (float)Math.random(), -(float)Math.random(), 0.0f,
+                (float)Math.random(), (float)Math.random(), (float)Math.random(), 1.0f,
 
-                0.0f, 0.559016994f, 0.0f,
-                1.0f, 0.0f, 1.0f, 1.0f};
+                (float)Math.random(), (float)Math.random(), 0.0f,
+                (float)Math.random(), (float)Math.random(), (float)Math.random(), 1.0f};
 
         // This triangle is white, gray, and black.
         final float[] triangle3VerticesData = {
                 // X, Y, Z,
                 // R, G, B, A
-                -0.5f, -0.25f, 0.0f,
-                1.0f, 1.0f, 1.0f, 1.0f,
+                -(float)Math.random(), -(float)Math.random(), 0.0f,
+                (float)Math.random(), (float)Math.random(), (float)Math.random(), 1.0f,
 
-                0.5f, -0.25f, 0.0f,
-                0.5f, 0.5f, 0.5f, 1.0f,
+                (float)Math.random(), -(float)Math.random(), 0.0f,
+                (float)Math.random(), (float)Math.random(), (float)Math.random(), 1.0f,
 
-                0.0f, 0.559016994f, 0.0f,
-                0.0f, 0.0f, 0.0f, 1.0f};
+                (float)Math.random(), (float)Math.random(), 0.0f,
+                (float)Math.random(), (float)Math.random(), (float)Math.random(), 1.0f};
 
 
         // Initialize the buffers.
@@ -144,8 +144,9 @@ public class Renderer02 extends IExampleRenderer {
 
     @Override
     public void onSurfaceCreated(GL10 glUnused, EGLConfig config) {
-        // Set the background clear color to gray.
-        GLES20.glClearColor(0.5f, 0.5f, 0.5f, 0.5f);
+        while (alpha < 0.5)
+            alpha = (float) Math.random();
+        GLES20.glClearColor(red, green, blue, alpha);
 
         // Position the eye behind the origin.
         final float eyeX = 0.0f;
@@ -286,8 +287,6 @@ public class Renderer02 extends IExampleRenderer {
 
     @Override
     public void onDrawFrame(GL10 gl10) {
-        while (alpha < 0.5)
-            alpha = (float) Math.random();
         GLES20.glClear(GLES20.GL_DEPTH_BUFFER_BIT | GLES20.GL_COLOR_BUFFER_BIT); // Очищаем буффер цвета
         GLES20.glClearColor(red, green, blue, alpha);
 // Do a complete rotation every 10 seconds.
