@@ -3,6 +3,7 @@ package examples.spend.opengl.myrenderers;
 import android.content.Context;
 import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
+import android.util.Log;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
@@ -32,5 +33,14 @@ public abstract class IExampleRenderer implements GLSurfaceView.Renderer {
     }
 
     public void onContinue() {
+    }
+
+
+    public static void checkGlError(String glOperation) {
+        int error;
+        while ((error = GLES20.glGetError()) != GLES20.GL_NO_ERROR) {
+            Log.e(IExampleRenderer.class.getName(), glOperation + ": glError " + error);
+            throw new RuntimeException(glOperation + ": glError " + error);
+        }
     }
 }
