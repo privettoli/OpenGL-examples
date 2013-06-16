@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">OpenGL</string>
+    <string name="action_settings">Настройки</string>
+    <string name="title_section1">Мечта эпилептика</string>
+    <string name="title_section2">Бешенные треугольники</string>
+    <string name="title_section3">Section 3</string>
+
+</resources>
